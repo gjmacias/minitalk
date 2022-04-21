@@ -32,3 +32,43 @@ int	ft_atoi(char *str)
 	}
 	return (neg * num);
 }
+
+void	ft_putstr(char *str)
+{
+	if (str)
+	{
+		while (*str != '\0')
+		{
+			write(1, &str, 1);
+			str++;
+		}
+	}
+}
+
+void	ft_putnbr(int num)
+{
+	char c;
+	
+	if (num == -2147483648)
+		write(1, "-2147483648", 11);
+	else
+	{
+		if (num < 0)
+		{
+			write(1, "-", 1);
+			num = -num;
+			ft_putnbr(num);
+		}
+		else if(num < 10)
+		{
+			c = nur + '0';
+			write(1, &c, 1);
+		}
+		else
+		{
+			ft_putnbr(num / 10);
+			c = (num % 10) + '0';
+			write(1, &c, 1);
+		}
+	}
+}
