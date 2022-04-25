@@ -7,7 +7,7 @@ t_mini	*server_initiate(void)
 	talk = malloc(sizeof(mini));
 	if (!talk)
 	{
-		ft_putstr("ERROR!, malloc failed :\( !\n");
+		ft_putstr("ERROR!, malloc failed :( !\n");
 		exit(EXIT_FAILURE);
 	}
 	talk->pid_server = 0;
@@ -41,7 +41,7 @@ void	server_loop(t_mini *talk)
 		if ((signal(SIGUSR1, server_recieve) == SIG_ERR) 
 		    || (signal(SIGUSR2, server_recieve) == SIG_ERR))
 		{
-			ft_putstr("ERROR!, Signal error x\_x!\n");
+			ft_putstr("ERROR!, Signal error x_x!\n");
 			free(talk);
 			exit(EXIT_FAILURE);
 		}
@@ -54,7 +54,7 @@ int	main(int nword, char *arguments[])
 	talk = NULL;
 	if (nword != 1)
 	{
-		ft_putstr("ERROR!, Use \"./server\" with 1 argument please :\)\n");
+		ft_putstr("ERROR!, Use \"./server\" with 1 argument please :)\n");
 		exit(EXIT_FAILURE);
 	}
 	else
