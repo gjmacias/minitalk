@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gmacias- <gmacias-@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/25 16:27:54 by gmacias-          #+#    #+#             */
+/*   Updated: 2022/04/25 18:36:30 by gmacias-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 t_mini	*client_initiate(void)
 {
 	t_mini	*talk;
-	
-	talk = malloc(sizeof(mini));
+
+	talk = malloc(sizeof(t_mini));
 	if (!talk)
 	{
 		ft_putstr("ERROR!, malloc failed :( !\n");
@@ -20,20 +32,22 @@ void	client_send(t_mini *talk, char *message)
 	int	bit_displacement;
 	int	i;
 	int	signal;
-	
+
 	i = -1;
-	while(++i <= ft_strlen(message))
+	while (++i <= ft_strlen(message))
 	{
-		bit_desplacement = -1;
+		bit_displacement = -1;
 		signal = 0;
 		while (++bit_displacement < 7)
 		{
-			if((message[i] >> bit_displacement) & 1)
+			if ((message[i] >> bit_displacement) & 1)
+			{
 				signal = SIGUSR2;
+			}
 			else
 				signal = SIGUSR1;
 			kill(talk->pid_server, signal);
-			usleep(100);
+			usleep(200);
 		}
 	}
 	return ;
@@ -42,7 +56,7 @@ void	client_send(t_mini *talk, char *message)
 int	main(int nword, char *arguments[])
 {
 	t_mini	*talk;
-	
+
 	talk = NULL;
 	if (nword != 3)
 	{
