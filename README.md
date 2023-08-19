@@ -21,10 +21,10 @@ En nuestro **minitalk** tenemos  las siguentes funciones de librerias externas a
 | malloc | Solicitar un bloque de memoria del tamaño suministrado como parámetro.     													|
 | free | Desasigna un bloque de memoria que se había asignado previamente mediante una llamada. 											|
 | write | Hace que los bytes que indiques del buffer sean escritos en el file descriptor seleccionado.								|
-| signal |  Abre el archivo del sistema seleccionado.													|
-| getpid |  Cierra el archivo del sistema seleccionado.               											|
-| kill |  Lee el contenido del archivo del sistema seleccionado.               									|
-| usleep |  Lee el contenido del archivo del sistema seleccionado.               									|
+| signal |  Gestiona las señales asincronas													|
+| getpid |  Se utiliza para obtener el ID de proceso (PID)               											|
+| kill | Envia señales a procesos específicos, permitiendo controlar y comunicarse con ellos           							|
+| usleep |  Suspende la ejecución de un programa por un período de tiempo expresado en microsegundos.               									|
 | exit | Finaliza inmediatamente el programa liberando la memoria dinamica asignada        |
 
 
