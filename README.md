@@ -7,58 +7,46 @@ El propósito de este proyecto es crear un pequeño programa de intercambio de d
 * [Como funciona?](#como-funciona)
 
 ### Que es minitalk?
-Este proyecto consiste en la creacion de un juego 2D, donde debes recoger todos los consumibles y escapar en la menor cantidad de movimientos posibles de un mapa creado por ti mismo!
 
-En el siguiente ejemplo tenemos los siguientes componentes del mapa:
+minitalk es un projecto de [42][1] donde creamos un programa el cual consiste de un servidor y un cliente. este enviará
+datos mediante dos señales; SIGUSR1 y SIGUSR2. 
 
-*1111111  
-1**P**0**C**0**E**1  
-1111111*  
-
-◦ '1': Paredes, para poder jugar todo el mapa debe estar rodeado de ellos.
-
-◦ 'P': Será el jugador y solo podra haber uno en todo el mapa.
-
-◦ 'E': Será la salida y solo podra haber uno en todo el mapa.
-
-◦ 'C': Los consumibles, podran haber tantos como gustes (minimo 1) y deberan ser alcanzables en todo momento.
-
-***Cabe recalcar que el mapa debe ser realizable en todo momento, en caso de que sea imposible, retornara error.***  
-
-Por último estos serán los siguientes controles:
-|TECLA|ACCIÓN|
-|---|---|
-|`W`|Mover el personaje hacia arriba|
-|`A`|Mover el personaje hacia la izquierda|
-|`S`|Mover el personaje hacia abajo|
-|`D` |Mover el personaje hacia la derecha|
-|`ESC`|Cierra el juego sin **memory leaks**|
+Estas se encargaran de codificar y decodificar el mensaje mientras que la comunicación entre servidor y cliente se hará mediante un PID.
 
 ### Que utilizamos?
-En nuestro **so_long** tenemos solo las siguentes funciones de librerias externas autorizadas:
+En nuestro **minitalk** tenemos  las siguentes funciones de librerias externas autorizadas:
 
 | Función  | Descripción														 			|
 |-------|-----------------------------------------------------------------------------------|
 | malloc | Solicitar un bloque de memoria del tamaño suministrado como parámetro.     													|
 | free | Desasigna un bloque de memoria que se había asignado previamente mediante una llamada. 											|
 | write | Hace que los bytes que indiques del buffer sean escritos en el file descriptor seleccionado.								|
-| open |  Abre el archivo del sistema seleccionado.													|
-| close |  Cierra el archivo del sistema seleccionado.               											|
-| read |  Lee el contenido del archivo del sistema seleccionado.               									|
+| signal |  Abre el archivo del sistema seleccionado.													|
+| getpid |  Cierra el archivo del sistema seleccionado.               											|
+| kill |  Lee el contenido del archivo del sistema seleccionado.               									|
+| usleep |  Lee el contenido del archivo del sistema seleccionado.               									|
 | exit | Finaliza inmediatamente el programa liberando la memoria dinamica asignada        |
 
-Tambien necesitaremos **OBLIGATORIAMENTE** la libreria *minilibx* para este proyecto.
 
 ### Como funciona?
 
 Para compilar el programa seguimos los siguientes pasos:
 
-	git clone https://github.com/gjmacias/so_long
-	cd so_long
+	git clone https://github.com/gjmacias/minitalk
+	cd minitalk
 	make
-Luego ejecutamos el programa pasandole de parametro la ubicacion del archivo del mapa:
+ 
+Luego ejecutamos en una terminal el server:
 
-	./so_long maps/map.ber
+	./server
+ 
+Este te dará el PID para comunicarse con los clientes:
+
+	SUCCESS!, Server is ready :D! The PID: *VWXYZ*
+
+ Luego ejecutamos desde **OTRA** terminal el client y le añadimos los parametros de PID y :
+
+	./client *VWXYZ* ""
 
 ¡Y eso seria todo!¡Estas liso para jugar!
 
