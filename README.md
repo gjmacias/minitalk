@@ -44,11 +44,14 @@ Este te dará el PID para comunicarse con los clientes:
 
 	SUCCESS!, Server is ready :D! The PID: *VWXYZ*
 
- Luego ejecutamos desde **OTRA** terminal el client y le añadimos los parametros de PID y :
+ Luego ejecutamos desde **OTRA** terminal el client y le añadimos los parametros de PID y los parametros a pasar:
 
-	./client *VWXYZ* ""
+	./client *VWXYZ* "soy un comentario que voy a pasar del cliente al servidor" 
+ 	👇🏼	👇🏼	👇🏼	👇🏼	👇🏼	👇🏼	👇🏼	👇🏼	👇🏼	👇🏼
+	./server soy un comentario que voy a pasar del cliente al servidor
 
-¡Y eso seria todo!¡Estas liso para jugar!
+
+¡Y eso seria todo!
 
 # Quizás pueda interesarte!
 
