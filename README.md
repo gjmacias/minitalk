@@ -1,5 +1,6 @@
 # minitalk - gmacias-
-Este proyecto es un pequeño juego en 2D. Está diseñado para trabajar con texturas y sprites junto algunos otros elementos básicos de jugabilidad.
+El propósito de este proyecto es crear un pequeño programa de intercambio de datos utilizando señales UNIX.
+
 ### Indice
 * [Que es minitalk?](#que-es-minitalk)
 * [Que utilizamos?](#que-utilizamos)
