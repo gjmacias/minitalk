@@ -8,7 +8,7 @@ El propósito de este proyecto es crear un pequeño programa de intercambio de d
 
 ### Que es minitalk?
 
-minitalk es un projecto de [42][1] donde creamos un programa el cual consiste de un servidor y un cliente. este enviará
+minitalk es un proyecto de [42][1] donde creamos un programa el cual consiste de un servidor y un cliente. este enviará
 datos mediante dos señales; SIGUSR1 y SIGUSR2. 
 
 Estas se encargaran de codificar y decodificar el mensaje mientras que la comunicación entre servidor y cliente se hará mediante un PID.
